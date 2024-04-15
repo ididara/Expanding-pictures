@@ -1,0 +1,68 @@
+@import url("https://fonts.googleapis.com/css?family=Muli&display=swap");
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Muli", sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  overflow: hidden;
+  margin: 0;
+}
+
+.container {
+  display: flex;
+  width: 90vw;
+}
+
+.panel {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 80vh;
+  border-radius: 50px;
+  color: #fff;
+  cursor: pointer;
+  flex: 0.5;
+  margin: 10px;
+  position: relative;
+  transition: flex 0.7s ease-in;
+}
+
+.panel h3 {
+  font-size: 24px;
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  margin: 0;
+  opacity: 0;
+}
+
+.panel.active {
+  flex: 5;
+}
+
+.panel.active h3 {
+  opacity: 1;
+  transition: opacity 0.3s ease-in 0.4s;
+}
+
+@media (max-width: 480px) {
+  .container {
+    width: 100vw;
+  }
+
+  .panel:nth-of-type(4),
+  .panel:nth-of-type(5) {
+    display: none;
+  }
+}
+
+/* 
+ode smo od defaulta prominili font prvo u prvoj liniji koda u linku da piše Muli, kasnije u #8 da piše Muli, makli smo flex direction koji nam ode ne triba i onda smo krenuli sa napisanim htmlom i classovima. dodali smo da je container flex tako da slike idu horizontalno, dodalo se da je container 90vw što znači da je 90% viewporta, dodali za panel da je bakcground size auto 100%, za taj atribut se može još dodati i cover kako bi imalo uglate rubove, a ne oštre kakvi su po defaultu, back.position se stavi center, to će promijeniti da ovaj dio slike koji se vidi na u ovim manjim panelima da bude po sredini, a ne početak slike, backrepeat ??? , height je 80vH - 80% viewporta, border radius 50px - gordnjih i donjih 50px će bit polukružno, color mijenja boju teksta, cursor:pointer - kad se hovera preko slike pojavljuje se cursor - šaka s ispruženim kažiprstom, nije obični miš, flex je na 0.5 - znači u ovom trenutku su sve isto široke (Defaultno nisu bile) i to ćemo kasnije sa classom .active prominit da psotanu veće, sa marginom ih razdvajamo da nsiu sve spojene od ruba do ruba nego postoji malo bijelog prostora između svake foto, position je stavljen kao relative kako bi od .panela kasnije mogao biti absolute, transiiotn felx 0.7s ease-in - tako se otvaraju kad se uđe na stranicu, polako ulaze u stranicu za vrijeme od 0.7 sekundi. što se tiče panela h3, to se tiče samo teksta, stavljen na 24px, absolute position, želi da bude dolje lijevo pa onda upisuje bottom 20 i left 20 da se toliko odvoji od dolje. za h3 želimo da se pojavi samo ako je active, tako da stavljamo opacity na 0 i tekst će se pojavit kad postane active. active - flex je 5 - proširili smo aktivnu sliku, a na panel.active smo promijenili opacity. onda smo stvorili @ media i njemu smo stavili max width 480px, što znači da sve atribute koje upišemo unutar ovog objekta će vrijediti za ekrane čija je širina do 480px. tu smo za container proširili na 100vw - 100$ viewporta, defaultno je na 90, a sad želimo napraviti da se vide samo 3 panela, to radimo za .panel sa alatom nth of type i postavljamo koji po redu da se ne vidi, dakle 4 i 5, mora se za svaki zasebno napisati, i display se stavlja na none- da se ne vidi. 
+Naknadno smo dodali na .panel.active h3 transition da opacity ide nakon 0.3sekunde, da je ease in i da ima delay od 0.4s, što znači da se tekst pojavi kasnije 0.4s od klika
+*/

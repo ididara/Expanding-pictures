@@ -1,2 +1,1 @@
-# Expanding-pictures
-Expanding picture - little website from course
+Little website which I made by following course on Udemy. It's a very simple website, where you can put pictures on it, made them visible just partially on the site, except the main one which you choose. All 3 files were made from scratch in this repository.
